@@ -3,7 +3,7 @@
 function App() {
   return (
     <>
-      <h1>Blank</h1>
+      <h1>Blanko</h1>
     </>
   );
 }
