@@ -1,18 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import YouTube from 'react-youtube';
 
 export default function AudioPlayer() {
     const playerRef = useRef(null);
-
-    // ID YouTube-видео (из URL: https://youtu.be/VIDEO_ID)
-    const videoId = "R-XWfz3SbNk"; // Замените на нужный ID
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoId = "R-XWfz3SbNk";
 
     const opts = {
-        height: '0', // Скрываем видео (высота 0)
+        height: '0',
         width: '0',
         playerVars: {
-            autoplay: 0, // Автовоспроизведение (0 - выкл, 1 - вкл)
-            controls: 1, // Показывать элементы управления
+            autoplay: 0,
+            controls: 0,
         },
     };
 
@@ -20,19 +19,33 @@ export default function AudioPlayer() {
         playerRef.current = event.target;
     };
 
+    const togglePlay = () => {
+        if (!playerRef.current) return;
+
+        if (isPlaying) {
+            playerRef.current.pauseVideo();
+        } else {
+            playerRef.current.playVideo();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
     return (
         <div className="audio-player">
-            <h3>YouTube Audio Player</h3>
+            <h3>Music</h3>
             <YouTube
                 videoId={videoId}
                 opts={opts}
                 onReady={onReady}
             />
 
-            {/* Кнопки для управления (опционально) */}
             <div className="controls">
-                <button onClick={() => playerRef.current.playVideo()}>▶️ Play</button>
-                <button onClick={() => playerRef.current.pauseVideo()}>⏸ Pause</button>
+                <button
+                    onClick={togglePlay}
+                    className={`play-button ${isPlaying ? 'playing' : ''}`}
+                >
+                    {isPlaying ? '⏸' : '▶️'}
+                </button>
             </div>
         </div>
     );

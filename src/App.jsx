@@ -11,9 +11,7 @@ function App() {
     <>
       <h1>Blank</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         <p>
           Fuck you.
         </p>

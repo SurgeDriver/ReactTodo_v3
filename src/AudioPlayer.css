@@ -11,14 +11,14 @@
     margin-top: 10px;
 }
 
-.controls button {
+/* .controls button {
     margin-right: 10px;
     padding: 5px 10px;
     cursor: pointer;
     background: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
+} */
 
 .controls button:hover {
     background: #e0e0e0;
