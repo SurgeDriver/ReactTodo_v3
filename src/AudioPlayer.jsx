@@ -5,7 +5,7 @@ export default function AudioPlayer() {
     const playerRef = useRef(null);
 
     // ID YouTube-видео (из URL: https://youtu.be/VIDEO_ID)
-    const videoId = "dQw4w9WgXcQ"; // Замените на нужный ID
+    const videoId = "R-XWfz3SbNk"; // Замените на нужный ID
 
     const opts = {
         height: '0', // Скрываем видео (высота 0)
