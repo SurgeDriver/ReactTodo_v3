@@ -6,8 +6,10 @@ export default function Task({ task, onToggle, onDelete, onEdit, formatDistanceT
   const [editText, setEditText] = useState(task.text);
 
   const handleEditClick = () => {
-    setEditing(true);
-    setEditText(task.text);
+    if (!task.completed) {
+      setEditing(true);
+      setEditText(task.text);
+    }
   };
 
   const handleSubmit = (e) => {
