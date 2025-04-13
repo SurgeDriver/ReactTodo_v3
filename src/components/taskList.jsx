@@ -1,9 +1,8 @@
-// TaskList.js
 import React from 'react';
 import PropTypes from 'prop-types';
 import Task from './task';
 
-export default function TaskList({ tasks, onToggle, onDelete, formatDistanceToNow }) {
+export default function TaskList({ tasks, onToggle, onDelete, onEdit, formatDistanceToNow }) {
   return (
     <section className="main">
       <ul className="todo-list">
@@ -13,6 +12,7 @@ export default function TaskList({ tasks, onToggle, onDelete, formatDistanceToNo
             task={task}
             onToggle={onToggle}
             onDelete={onDelete}
+            onEdit={onEdit}
             formatDistanceToNow={formatDistanceToNow}
           />
         ))}
@@ -25,5 +25,6 @@ TaskList.propTypes = {
   tasks: PropTypes.array.isRequired,
   onToggle: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
   formatDistanceToNow: PropTypes.func.isRequired,
 };

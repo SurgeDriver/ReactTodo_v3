@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import NewTaskForm from './components/newTaskForm';
 import TaskList from './components/taskList';
@@ -29,6 +28,10 @@ export default function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  const editTask = (id, newText) => {
+    setTasks(tasks.map((task) => task.id === id? {...task, text: newText} : task))
+  }
+
   const clearCompleted = () => {
     setTasks(tasks.filter((task) => !task.completed));
   };
@@ -51,6 +54,7 @@ export default function App() {
         tasks={filteredTasks}
         onToggle={toggleTask}
         onDelete={deleteTask}
+        onEdit={editTask}
         formatDistanceToNow={formatDistanceToNow}
       />
       <Footer
