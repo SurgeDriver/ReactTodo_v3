@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import NewTaskForm from './components/newTaskForm';
-import TaskList from './components/taskList';
-import Footer from './components/footer';
-import { formatDistanceToNow } from 'date-fns';
+import React, { useState } from 'react'
+import NewTaskForm from './components/newTaskForm'
+import TaskList from './components/taskList'
+import Footer from './components/footer'
+import { formatDistanceToNow } from 'date-fns'
 
 export default function App() {
-  const [tasks, setTasks] = useState([]);
-  const [filter, setFilter] = useState('all');
+  const [tasks, setTasks] = useState([])
+  const [filter, setFilter] = useState('all')
 
   const addTask = (text) => {
     const newTask = {
@@ -14,35 +14,39 @@ export default function App() {
       text,
       completed: false,
       createdAt: new Date(),
-    };
-    setTasks([...tasks, newTask]);
-  };
+    }
+    setTasks([...tasks, newTask])
+  }
 
   const toggleTask = (id) => {
     setTasks(
-      tasks.map((task) => (task.id === id ? { ...task, completed: !task.completed } : task)),
-    );
-  };
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task,
+      ),
+    )
+  }
 
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
 
   const editTask = (id, newText) => {
-    setTasks(tasks.map((task) => task.id === id? {...task, text: newText} : task))
+    setTasks(
+      tasks.map((task) => (task.id === id ? { ...task, text: newText } : task)),
+    )
   }
 
   const clearCompleted = () => {
-    setTasks(tasks.filter((task) => !task.completed));
-  };
+    setTasks(tasks.filter((task) => !task.completed))
+  }
 
   const filteredTasks = tasks.filter((task) => {
-    if (filter === 'active') return !task.completed;
-    if (filter === 'completed') return task.completed;
-    return true;
-  });
+    if (filter === 'active') return !task.completed
+    if (filter === 'completed') return task.completed
+    return true
+  })
 
-  const activeCount = tasks.filter((task) => !task.completed).length;
+  const activeCount = tasks.filter((task) => !task.completed).length
 
   return (
     <div className="todoapp">
@@ -64,5 +68,5 @@ export default function App() {
         onClearCompleted={clearCompleted}
       />
     </div>
-  );
+  )
 }

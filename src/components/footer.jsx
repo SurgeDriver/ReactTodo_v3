@@ -1,7 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function Footer({ activeCount, currentFilter, onFilterChange, onClearCompleted }) {
+export default function Footer({
+  activeCount,
+  currentFilter,
+  onFilterChange,
+  onClearCompleted,
+}) {
   return (
     <footer className="footer">
       <span className="todo-count">{activeCount} items left</span>
@@ -21,7 +26,7 @@ export default function Footer({ activeCount, currentFilter, onFilterChange, onC
         Clear completed
       </button>
     </footer>
-  );
+  )
 }
 
 Footer.propTypes = {
@@ -29,4 +34,4 @@ Footer.propTypes = {
   currentFilter: PropTypes.string.isRequired,
   onFilterChange: PropTypes.func.isRequired,
   onClearCompleted: PropTypes.func.isRequired,
-};
+}

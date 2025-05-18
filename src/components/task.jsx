@@ -1,25 +1,33 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
-export default function Task({ task, onToggle, onDelete, onEdit, formatDistanceToNow }) {
-  const [editing, setEditing] = useState(false);
-  const [editText, setEditText] = useState(task.text);
+export default function Task({
+  task,
+  onToggle,
+  onDelete,
+  onEdit,
+  formatDistanceToNow,
+}) {
+  const [editing, setEditing] = useState(false)
+  const [editText, setEditText] = useState(task.text)
 
   const handleEditClick = () => {
     if (!task.completed) {
-      setEditing(true);
-      setEditText(task.text);
+      setEditing(true)
+      setEditText(task.text)
     }
-  };
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    onEdit(task.id, editText);
-    setEditing(false);
-  };
+    e.preventDefault()
+    onEdit(task.id, editText)
+    setEditing(false)
+  }
 
   return (
-    <li className={`${task.completed ? 'completed' : ''} ${editing ? 'editing' : ''}`}>
+    <li
+      className={`${task.completed ? 'completed' : ''} ${editing ? 'editing' : ''}`}
+    >
       <div className="view">
         <input
           className="toggle"
@@ -34,7 +42,10 @@ export default function Task({ task, onToggle, onDelete, onEdit, formatDistanceT
           </span>
         </label>
         <button className="icon icon-edit" onClick={handleEditClick} />
-        <button className="icon icon-destroy" onClick={() => onDelete(task.id)} />
+        <button
+          className="icon icon-destroy"
+          onClick={() => onDelete(task.id)}
+        />
       </div>
       {editing && (
         <form onSubmit={handleSubmit}>
@@ -47,7 +58,7 @@ export default function Task({ task, onToggle, onDelete, onEdit, formatDistanceT
         </form>
       )}
     </li>
-  );
+  )
 }
 
 Task.propTypes = {
@@ -56,4 +67,4 @@ Task.propTypes = {
   onDelete: PropTypes.func.isRequired,
   onEdit: PropTypes.func.isRequired,
   formatDistanceToNow: PropTypes.func.isRequired,
-};
+}

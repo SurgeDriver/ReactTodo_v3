@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 export default function NewTaskForm({ onSubmit }) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (text.trim()) {
-      onSubmit(text.trim());
-      setText('');
+      onSubmit(text.trim())
+      setText('')
     }
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -22,10 +22,10 @@ export default function NewTaskForm({ onSubmit }) {
         autoFocus
       />
     </form>
-  );
+  )
 }
 
 NewTaskForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-};
+}
 //
