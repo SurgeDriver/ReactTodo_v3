@@ -1,0 +1,44 @@
+.new-todo-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.new-todo {
+  flex: 1;
+  position: relative;
+  margin: 0;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  color: inherit;
+  padding: 16px 8px 16px 60px;
+  border: 1px solid #e6e6e6;
+  background: #f9f9f9;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.new-todo-form__timer {
+  width: 80px;
+  font-size: 24px;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: 1.4em;
+  color: inherit;
+  padding: 16px 6px 16px;
+  border: 1px solid #e6e6e6;
+  background: #f9f9f9;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.new-todo-form__timer:focus,
+.new-todo:focus {
+  border-color: #999;
+  outline: none;
+}
