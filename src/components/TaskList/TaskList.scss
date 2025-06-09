@@ -1,0 +1,175 @@
+@use '/index.scss' as *;
+
+$svg-checkbox-unchecked: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
+$svg-checkbox-checked: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+$color-text-completed: #cdcdcd;
+
+.toggle-all {
+  position: absolute;
+  right: 100%;
+  bottom: 100%;
+  width: 1px;
+  height: 1px;
+  border: none;
+  opacity: 0;
+
+  & + label {
+    position: absolute;
+    top: -52px;
+    left: -13px;
+    width: 60px;
+    height: 34px;
+    font-size: 0;
+    transform: rotate(90deg);
+
+    &::before {
+      content: '❯';
+      padding: 10px 27px;
+      font-size: $font-size-icon-toggle-all;
+      color: $color-gray-400;
+    }
+  }
+
+  &:checked + label::before {
+    color: #737373;
+  }
+}
+
+.todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    font-size: $font-size-input;
+    border-bottom: $border-primary;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    %task-checkbox-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      cursor: pointer;
+    }
+
+    .toggle {
+      @extend %task-checkbox-overlay;
+      z-index: 2;
+      width: 40px;
+      border: none;
+      appearance: none;
+      opacity: 0;
+
+      & + .checkbox-label {
+        background-image: $svg-checkbox-unchecked;
+      }
+
+      &:checked + .checkbox-label {
+        background-image: $svg-checkbox-checked;
+      }
+    }
+
+    .checkbox-label {
+      @extend %task-checkbox-overlay;
+      left: 10px;
+      z-index: 1;
+      width: 40px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .task-content-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 55px;
+      padding: $item-padding-vertical $item-padding-right-with-icons $item-padding-vertical 0;
+      line-height: 1.2;
+
+      .description {
+        flex-grow: 1;
+        min-width: 0;
+        font-weight: $font-weight-medium;
+        color: #4d4d4d;
+        word-break: break-all;
+        transition: color 0.4s;
+        cursor: text;
+      }
+
+      .created {
+        margin-left: auto;
+        text-align: center;
+        font-size: $font-size-task-meta;
+        color: $color-gray-700;
+        white-space: nowrap;
+      }
+    }
+
+    .icon {
+      @extend %icon-button-base;
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      transform: translateY(-50%);
+      border-radius: $border-radius-medium;
+      background: transparent;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+
+    .icon-destroy {
+      right: 10px;
+      font-size: $font-size-icon-destroy;
+      &::after { content: '×'; }
+    }
+
+    .icon-edit {
+      right: 45px;
+      font-size: $font-size-icon-edit;
+      &::after { content: '✎'; }
+    }
+
+    &.editing {
+        padding: 0;
+        border-bottom: none;
+
+        .view {
+            display: none;
+        }
+
+        .edit {
+            display: block;
+            width: calc(100% - 43px - 10px);
+            margin: 0;
+            padding: 12px 16px;
+            font-family: inherit;
+            font-weight: inherit;
+            font-size: $font-size-input;
+            line-height: 1.2;
+            color: inherit;
+            box-sizing: border-box;
+            border: $border-input-focus;
+            box-shadow: $box-shadow-input-inset;
+            outline: none;
+        }
+
+        &:last-child {
+            margin-bottom: -1px;
+        }
+    }
+
+    &.completed .task-content-wrapper .description {
+      color: $color-text-completed;
+      text-decoration: line-through;
+      cursor: default;
+    }
+  }
+}

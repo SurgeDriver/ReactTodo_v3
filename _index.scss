@@ -1,0 +1,31 @@
+@forward 'variables';
+@use 'variables' as *;
+
+%icon-button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $timer-button-size;
+    height: $timer-button-size;
+    padding: 0;
+    // border: $border-icon;
+    background-color: $color-white;
+    color: $color-interactive-default;
+    cursor: pointer;
+    transition: $transition-icon-hover;
+
+    &:hover:not(:disabled) {
+        background-color: $color-interactive-bg-hover;
+        border-color: $color-interactive-hover;
+        color: $color-interactive-hover;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $color-interactive-hover;
+        outline-offset: 1px;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}

@@ -1,0 +1,39 @@
+@use '/index.scss' as *;
+
+.edit {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 6px;
+  font-size: $font-size-input;
+  border: $border-input-focus;
+  box-shadow: $box-shadow-input-inset;
+  box-sizing: border-box;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  p {
+    margin: 0;
+    font-size: $font-size-timer-text;
+    color: $color-black;
+    padding-left: 2px;
+  }
+
+  .timer-button {
+    @extend %icon-button-base;
+    border-radius: $border-radius-large;
+
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
+}
+
+.edit-form-container {
+  margin-left: 43px;
+  padding-right: 10px;
+}

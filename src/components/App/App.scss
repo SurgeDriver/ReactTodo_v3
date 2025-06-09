@@ -1,0 +1,65 @@
+@use '/index.scss' as *;
+
+@mixin placeholder-style {
+  font-style: italic;
+  font-weight: $font-weight-normal;
+  color: $color-text-placeholder;
+}
+
+body {
+  font: $font-weight-normal #{$font-size-base}/1.4em $font-family-primary;
+  background: $color-gray-200;
+  color: $color-black;
+  min-width: 230px;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  appearance: none;
+
+  &::-moz-focus-inner {
+    border: none;
+  }
+}
+
+:is(button, a):focus-visible {
+  outline: 2px auto $color-brand-primary;
+  outline-offset: 2px;
+}
+
+.todoapp {
+  position: relative;
+  background: $color-white;
+  margin: $app-margin-top 0 $app-margin-bottom 0;
+  box-shadow: $box-shadow-app;
+  border-top-left-radius: $border-radius-medium;
+  border-top-right-radius: $border-radius-medium;
+
+  h1 {
+    position: absolute;
+    top: -140px;
+    width: 100%;
+    font-size: $font-size-h1;
+    font-weight: $font-weight-light;
+    text-align: center;
+    color: $color-text-header-subtle;
+  }
+
+  input::placeholder {
+    @include placeholder-style;
+  }
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  border-top: $border-primary;
+}

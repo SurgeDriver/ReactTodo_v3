@@ -1,0 +1,38 @@
+@use '/index.scss' as *;
+
+%input-base {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: $font-size-input;
+  line-height: 1.4em;
+  color: inherit;
+  border: $border-primary;
+  background: $color-gray-100;
+  box-sizing: border-box;
+  border-radius: $border-radius-medium;
+
+  &:focus {
+    border: $border-input-focus;
+    outline: none;
+  }
+}
+
+.new-todo-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &__timer {
+    @extend %input-base;
+    width: 80px;
+    padding: $input-padding-vertical 6px;
+  }
+}
+
+.new-todo {
+  @extend %input-base;
+  position: relative;
+  flex: 1;
+  margin: 0;
+  padding: $input-padding-vertical $input-padding-horizontal $input-padding-vertical $input-padding-left-with-toggle;
+}

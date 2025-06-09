@@ -1,0 +1,39 @@
+@use '/index.scss' as *;
+
+.filters {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline;
+  }
+
+  button {
+    display: inline-block;
+    margin: 3px;
+    padding: 3px 7px;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: $border-radius-small;
+    cursor: pointer;
+
+    &:not(.selected):hover {
+      border-color: $color-filter-border-hover;
+    }
+
+    &.selected {
+      border-color: $color-filter-border-selected;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .filters {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+  }
+}
