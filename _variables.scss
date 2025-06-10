@@ -2,70 +2,55 @@ $color-brand-primary: #af2f2f;
 $color-interactive-default: #cc9a9a;
 $color-interactive-hover: #af5b5e;
 $color-interactive-bg-hover: rgba($color-interactive-hover, 0.07);
-$color-white: #fff;
-$color-gray-100: #f9f9f9;
-$color-gray-200: #f5f5f5;
-$color-gray-400: #e6e6e6;
-$color-gray-700: #999;
-$color-black: #111;
-
-$color-text-placeholder: rgba(0, 0, 0, 0.4);
-$color-text-header-subtle: rgba($color-interactive-default, 0.4);
-$color-checkbox-active-fill: #5dc2af;
-$color-checkbox-active-border: #bddad5;
-$color-filter-border-hover: rgba($color-brand-primary, 0.1);
-$color-filter-border-selected: rgba($color-brand-primary, 0.2);
+$color-white: #ffffff;
+$color-gray-1: #f9f9f9;
+$color-gray-2: #f5f5f5;
+$color-gray-3: #e6e6e6;
+$color-gray-4: #999999;
+$color-black: #000000;
 
 $font-family-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-$font-size-base: 14px;
+$color-text-placeholder: rgba($color-black, 0.4);
+$color-text-header-subtle: rgba($color-interactive-default, 0.4);
+$color-filter-border-hover: rgba($color-brand-primary, 0.1);
+$color-filter-border-selected: rgba($color-brand-primary, 0.3);
+
 $font-size-h1: 80px;
 $font-size-input: 24px;
-$font-size-footer: 15px;
-$font-size-info: 11px;
-$font-size-task-meta: 13px;
+$font-size-footer: 14px;
+$font-size-task-meta: 12px;
 $font-size-timer-text: 18px;
-$font-size-icon-toggle-all: 22px;
 $font-size-icon-destroy: 34px;
-$font-size-icon-edit: 19px;
+$font-size-icon-edit: 20px;
 
 $font-weight-light: 200;
 $font-weight-normal: 300;
 $font-weight-medium: 400;
 
-$app-margin-top: 130px;
-$app-margin-bottom: 40px;
-
-$base-padding: 15px;
-
 $input-padding-vertical: 16px;
-$input-padding-horizontal: 8px;
-$input-padding-left-with-toggle: 60px;
+$input-padding-horizontal: 5px;
+$input-padding-left-with-toggle: 50px;
 
 $item-padding-vertical: 15px;
 $item-padding-right-with-icons: 80px;
 
-$icon-container-size: 36px;
 $timer-button-size: 30px;
 
 $footer-height: 20px;
-$footer-height-mobile: 50px;
 
 $border-radius-small: 3px;
 $border-radius-medium: 4px;
 $border-radius-large: 5px;
 
-$border-primary: 1px solid $color-gray-400;
-$border-input-focus: 1px solid $color-gray-700;
-$border-icon: 1px solid $color-gray-400;
+$border-primary: 1px solid $color-gray-3;
+$border-input-focus: 1px solid $color-gray-4;
+$border-icon: 1px solid $color-gray-3;
 
 $box-shadow-app: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 $box-shadow-input-inset: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
 
-$transition-duration-fast: 0.2s;
-$transition-timing-function-default: ease-out;
+$td-fast: 0.2s;
+$easing: ease-out;
 
-$transition-color: color $transition-duration-fast $transition-timing-function-default;
-$transition-icon-hover: color $transition-duration-fast $transition-timing-function-default,
-  border-color $transition-duration-fast $transition-timing-function-default,
-  background-color $transition-duration-fast $transition-timing-function-default;
+$transition-icon-hover: color $td-fast $easing, border-color $td-fast $easing, background-color $td-fast $easing;

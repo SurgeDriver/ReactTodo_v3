@@ -5,11 +5,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px $base-padding;
+  padding: 10px 15px;
   height: $footer-height;
   font-size: $font-size-footer;
   border-top: $border-primary;
-  color: $color-gray-700;
+  color: $color-gray-4;
 
   &::before {
     content: "";
@@ -43,6 +43,6 @@
 
 @media (max-width: 430px) {
   .footer {
-    height: $footer-height-mobile;
+    height: $footer-height;
   }
 }
